@@ -2,26 +2,26 @@ services:
   
   # Nginx
   web:
-    container_name: nginx-ex
+    container_name: nginx
     image: nginx:latest
     ports:
       - "8081:80"
     volumes:
       - ./php/:/var/www/ 
-      - ./nginx.php-fpm.conf:/etc/nginx-ex/nginx.conf:ro
+      - ./nginx.php-fpm.conf:/etc/nginx/nginx.conf:ro
     links:
       - php-fpm
 
   # Configuración de php
   php-fpm:
-    container_name: php-ex
+    container_name: php
     build: .
     volumes:
       - ./php/:/var/www/html
           
   #MariaDB
   db:
-    container_name: mariadb-ex
+    container_name: mariadb
     image: mariadb:latest
     restart: always
     environment:
@@ -36,7 +36,7 @@ services:
 
   #MongoDB
   mongodb:
-    container_name: mongodb-ex
+    container_name: mongodb
     image: mongo:latest
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
