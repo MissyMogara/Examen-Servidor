@@ -1,0 +1,6 @@
+/mariadb/
+/mongodb/
+/vendor/
+vendor/
+node_modules/
+api-key/
